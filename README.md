@@ -2,9 +2,13 @@
 
 ### Simple Invoice Generator
 
-https://user-images.githubusercontent.com/91937163/181596639-54df529c-2357-4198-9a4c-6226cfbbfc75.mp4
+Example of GUI
 
-Example PDF Generated: [invoice.pdf](https://github.com/Bravo-Luis/Invoice-Maker/files/9212799/invoice.pdf)
+![InvoiceMaker](https://user-images.githubusercontent.com/91937163/194746990-ccfc098d-1dbd-4b56-bcbe-40231fada909.jpg)
+
+Example of PDF Generated: 
+
+![InvoidePDFEx](https://user-images.githubusercontent.com/91937163/194747092-d9f07f8c-18c1-434c-b320-6d543d26c410.jpg)
 
 ### My Goals:
 
