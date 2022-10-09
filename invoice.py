@@ -1,4 +1,4 @@
-#Luis Bravo 06/25/22 
+#Luis Bravo started 06/25/22 
 from curses.ascii import isalpha
 from operator import contains
 from tkinter import *
@@ -33,7 +33,7 @@ displayTotalPrice.set("$0.00")
 ttk.Label(leftFrame, textvariable=displayTotalPrice).grid(column=1, row=3, sticky=(W,E))
 ttk.Label(leftFrame, text="Total:").grid(column=0, row=3, sticky=(E))
 
-#Labels & Entries Right
+#Labels & Entries Right Company Details
 ttk.Label(rightFrame, text="Company Name:").grid(column=0, row=3, sticky=(W,E))
 displayCompanyName = StringVar()
 ttk.Entry(rightFrame, textvariable=displayCompanyName).grid(column=0,row=4, sticky=(W,E))
@@ -57,6 +57,20 @@ ttk.Entry(rightFrame, textvariable=displayDate).grid(column=0,row=12, sticky=(W,
 ttk.Label(rightFrame, text="Deposit($):").grid(column=0, row=17, sticky=(W,E))
 displayDeposit = StringVar()
 ttk.Entry(rightFrame, textvariable=displayDeposit).grid(column=0,row=18, sticky=(W,E))
+
+#Labels & Entries Right Bill To Details
+
+ttk.Label(rightFrame, text="Bill To Name:").grid(column=1, row=3, sticky=(W,E))
+displayBillToName = StringVar()
+ttk.Entry(rightFrame, textvariable=displayBillToName).grid(column=1, row=4, sticky=(W,E))
+
+ttk.Label(rightFrame, text="Bill To Address:").grid(column=1, row=5, sticky=(W,E))
+displayBillToAddress= StringVar()
+ttk.Entry(rightFrame, textvariable=displayBillToAddress).grid(column=1, row=6, sticky=(W,E))
+
+ttk.Label(rightFrame, text="Bill To City, State, Zip:").grid(column=1, row=7, sticky=(W,E))
+displayBillToArea= StringVar()
+ttk.Entry(rightFrame, textvariable=displayBillToArea).grid(column=1, row=8, sticky=(W,E))
 
 #Entry Fields & Text Variables LEFT
 description=StringVar()
@@ -163,11 +177,18 @@ def doneButton(*args):
     canvas.drawString(30,735, displayCompanyAddress.get())
     canvas.drawString(30,720, displayCompanyArea.get())
     canvas.drawString(30,705, "LIC#: " + str(displayLicenseNum.get()))
+    canvas.drawString(30, 690, "Invoice Date:")
+    canvas.drawString(105, 690, displayDate.get())
     
     canvas.drawString(60,640, "Description")
     canvas.line(50, 634, 550, 634)
     canvas.drawString(480,640, "Amount")
     yvalue = 620
+    
+    canvas.drawString(470, 750, "Bill To:")
+    canvas.drawString(470, 735, displayBillToName.get())
+    canvas.drawString(470, 720, displayBillToAddress.get())
+    canvas.drawString(470, 705, displayBillToArea.get())
     
 
     
@@ -199,8 +220,6 @@ def doneButton(*args):
         canvas.drawString(415, yvalue -60, "Deposit:")
         canvas.drawString(470, yvalue -60,  "$" + '%.2f' % 0)
         
-    canvas.drawString(470, 750, "Date:")
-    canvas.drawString(500, 750, displayDate.get())
     
     numTotal = displayTotalPrice.get()
     numTotal = numTotal.removeprefix("$")
